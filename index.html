@@ -1,24 +1,157 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>트래블 팩트체커</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
-  }
-}
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행의 순간</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 헤더 */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-size: 1em;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        /* 히어로 섹션 */
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        /* 여행지 추천 섹션 */
+        .destinations {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .destinations h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .destination-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .destination-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .destination-item h3 {
+            margin: 20px;
+        }
+        .destination-item p {
+            margin: 0 20px 20px;
+            color: #666;
+        }
+        /* 푸터 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+    </style>
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">여행의 순간</a>
+            <nav>
+                <a href="#">추천 여행지</a>
+                <a href="#">여행 팁</a>
+                <a href="#">문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>당신의 다음 목적지는 어디인가요?</h1>
+            <p>세상의 모든 아름다운 순간을 탐험하세요.</p>
+        </section>
+
+        <section class="destinations">
+            <div class="container">
+                <h2>추천 여행지</h2>
+                <div class="destination-grid">
+                    <div class="destination-item">
+                        <img src="https://via.placeholder.com/400x250" alt="여행지 1">
+                        <h3>고요한 산맥</h3>
+                        <p>자연의 위대함을 느끼며 재충전의 시간을 가져보세요.</p>
+                    </div>
+                    <div class="destination-item">
+                        <img src="https://via.placeholder.com/400x250" alt="여행지 2">
+                        <h3>활기찬 도시</h3>
+                        <p>끝없는 에너지와 문화가 살아 숨 쉬는 도시를 경험하세요.</p>
+                    </div>
+                    <div class="destination-item">
+                        <img src="https://via.placeholder.com/400x250" alt="여행지 3">
+                        <h3>푸른 해변</h3>
+                        <p>에메랄드빛 바다와 함께하는 완벽한 휴식을 즐겨보세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 여행의 순간. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
